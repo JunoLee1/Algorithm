@@ -1,8 +1,9 @@
-def isValid(s):
+def ValidParenthese(s):
     stack  = []
     pairs = {"(" : ")", "[" : "]", "{" : "}"}
-    for i in range(len(s)):
-        parenthese = s[i]
+    idx = 0
+    while idx < len(s):
+        parenthese = s[idx]
         if parenthese in pairs.keys():
             stack.append(parenthese)
         else:
@@ -10,10 +11,10 @@ def isValid(s):
                 return False 
             else:
                 pop = stack.pop()
-                if parenthese != pairs[pop]:
+                if parenthese != stack[pop]:
                     return False
-                       
-    if stack == []:
-        return True    
-s1 = "()"
-print(isValid(s1))
+        if stack == []:
+            return True
+str1 = "()"
+print(ValidParenthese(str1))
+    
