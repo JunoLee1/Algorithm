@@ -8,7 +8,7 @@ def mergeTwoLists(list1,list2):
     dummyNode = ListNode(0)
     runner = dummyNode
     while list1 or list2 :
-        if list1 is list2 :
+        if list1 is None :
             runner.next = list2 
             list2 = list2.next
         elif list2 is None:
