@@ -10,14 +10,11 @@ class Person:
     
     def introduce(self):
         print(f"I'm {self.name} and {self.age} years now")
-p1 = Person("Juno","25")
-p1.introduce()
-
 
 class Person2(Person):
-    def __init__(self,sex):
-        super().__init__()
-        self.sex = sex
+    def __init__(self,name,age,sex):
+        super().__init__(name,age)
+        self. sex = sex
     def introduce(self):
         print(f"I'm {self.name} and {self.age} years now, {self.sex}")
 
