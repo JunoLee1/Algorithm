@@ -1,3 +1,5 @@
+
+
 def maxSubArray(nums):
         curr_sum = 0
         max_sum = nums[0]
@@ -7,4 +9,3 @@ def maxSubArray(nums):
         return max_sum
 num = [-2,1,-3,4,-1,2,1,-5,4]
 print(maxSubArray(num))
-

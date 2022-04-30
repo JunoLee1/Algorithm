@@ -4,17 +4,24 @@
 3. method introduce 
 '''
 class Person:
-    def __init__(self, age, name, nickname):
-        self.age = age
-        self.name = name
-        self.nickname = nickname 
-    
+    def __init__(self,name,age):
+        self. name = name 
+        self. age = age
     
     def introduce(self):
-        print(f"Hi, my name is {self.name}, and you can call me {self.nickname}, and I'm {self.age}")
-    
-p1 = Person(26, "Jun Oh Lee", "Juno") 
-p2 = Person(26, "Chloe Scales", "Chloe")
- 
+        print(f"I'm {self.name} and {self.age} years now")
+p1 = Person("Juno","25")
 p1.introduce()
-p2.introduce()
+
+
+class Person2(Person):
+    def __init__(self,sex):
+        super().__init__()
+        self.sex = sex
+    def introduce(self):
+        print(f"I'm {self.name} and {self.age} years now, {self.sex}")
+
+p1 =Person2("Juno","25","male")
+p1.introduce()
+
+
