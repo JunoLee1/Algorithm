@@ -5,19 +5,20 @@
 '''
 class Person:
     def __init__(self,name,age):
-        self. name = name 
-        self. age = age
+        self.name = name 
+        self.age = age
     
     def introduce(self):
         print(f"I'm {self.name} and {self.age} years now")
 
+
 class Person2(Person):
     def __init__(self,name,age,sex):
         super().__init__(name,age)
-        self. sex = sex
+        self.sex = sex
+    
     def introduce(self):
-        print(f"I'm {self.name} and {self.age} years now, {self.sex}")
-
+        print(f"what's up guys, my name is {self.name} and {self.age} years old, {self.sex}")
 p1 =Person2("Juno","25","male")
 p1.introduce()
 
