@@ -10,4 +10,4 @@ def isSubsequence(self, s, t):
 
 s1 = "abc"
 t1 = "ahbgdc"
-print(isSubsequence(s1,t1))
+print(isSubsequence(self,s1,t1))
