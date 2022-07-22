@@ -15,5 +15,15 @@ def includeCha(self,strs,curr,i):
             return False
     return True
 
-strs1 = ["flower","flow","flight"]
-print(longestCommonPrefix(strs1))
+
+class Solution:
+    def longestCommonPrefix(self, strings, i=0):
+        letter = None
+        for string in strings: 
+            if i >= len(string): #If there is no common prefix, return an empty string ""
+                return ""
+            if not letter:
+                letter = string[i]
+            elif letter != string[i]: #
+                return ""
+        return letter + self.longestCommonPrefix(strings, i + 1)
