@@ -22,8 +22,8 @@ class Solution:
         for string in strings: 
             if i >= len(string): #If there is no common prefix, return an empty string ""
                 return ""
-            if not letter:
-                letter = string[i]
+            if not letter: #letter가 true 이면 
+                letter = string[i] #
             elif letter != string[i]: #
                 return ""
         return letter + self.longestCommonPrefix(strings, i + 1)
