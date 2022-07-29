@@ -29,10 +29,10 @@ class Solution:
         #     return 1
         # general case:
         # f(i,j) = f(i,j-1) +f(i-1,j)
-        dp = [[0 for _ in range(m)] for _ in range(n)]
-        dp[0][0] = 1
-        for j in range(m):
-            for i in range(n):
+        dp = [[0 for _ in range(m)] for _ in range(n)] #i와 j의 제일 낮은 값이 0 이니 초반 값을 0으로 설정
+        dp[0][0] = 1 # if i == 0 and j == 0 , 1(it means the robot already have visited the place)
+        for j in range(m): 
+            for i in range(n): #왜 여기서 j 와 i를 바꾸면 안되나요??
                 if i == 0 and j == 0 :
                     continue
                 
