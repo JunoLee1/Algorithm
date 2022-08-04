@@ -23,7 +23,7 @@ class Solution:
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         # problem def: return the number of possible unique paths that the robot can take to reach the bottom-right corner. the robot only move right or down.
-        # f(i,j) = the number of possible unique path from i to j
+        # f(i,j) = the number of possible unique path from 0,0 to i-1,j-1
         # base case :
         # if i == 0 or j == 0:
         #     return 1

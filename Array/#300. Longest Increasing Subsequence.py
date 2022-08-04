@@ -8,7 +8,7 @@ class Solution:
         for i in range(n): #
             for j in range(i): # 뒤의 숫자를 탐색
                 if nums[i] > nums[j]: #뒤의 nums가  앞의 nums보다 클때
-                    dp[i] = max(dp[j] + 1, dp[i]) #
+                    dp[i] = max(dp[j] + 1, dp[i]) #이둘중에 하나는 이길수 없다면 합류하라
         return max(dp)
 
 
