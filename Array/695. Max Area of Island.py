@@ -5,20 +5,22 @@ class Solution:
         self.dx = [0, -1, 0, 1]
         self.dy = [-1, 0, 1, 0]
         self.visited = [[False for _ in range(self.n)] for _ in range(self.m)]
-        self.temp = 0
+        self.num = 1
         m_island = 0
+        
         for i in range(self.m):
             for j in range(self.n):
-                if self.grid[i][j] ==1 and (not self.visited[i][j]):
+                if self.grid[i][j] == 1 and (not self.visited[i][j]):
                     self.bfs(i,j)
-                    m_island = max(m_island, self.temp)
+                    m_island = max(m_island, self.num)
+                    self.num += 1
         return m_island
     
     def bfs(self,i,j):
         Q = []
         Q.append((i,j))
         self.visited[i][j] = True
-        while Q:
+        while len(Q):
             curr = Q[0]
             Q.pop(0)
             for d in range(4):
@@ -30,9 +32,8 @@ class Solution:
                 
                 if self.grid[nx][ny] == 0 or self.visited[nx][ny]:
                     continue 
-            Q.append((nx, ny))
-            self.visited[nx][ny] = True
-            self.temp += 1
+                Q.append((nx, ny))
+                self.visited[nx][ny] = True
         return None
             
         
