@@ -5,16 +5,16 @@ class Solution:
         self.dx = [0, -1, 0, 1]
         self.dy = [-1, 0, 1, 0]
         self.visited = [[False for _ in range(self.n)] for _ in range(self.m)]
-        self.num = 1
-        m_island = 0
+        cnt1 = 0
+        max_island = 0
         
         for i in range(self.m):
             for j in range(self.n):
                 if self.grid[i][j] == 1 and (not self.visited[i][j]):
                     self.bfs(i,j)
-                    m_island = max(m_island, self.num)
-                    self.num += 1
-        return m_island
+                    cnt1 += 1
+                    max_island = max(max_island, cnt1)
+        return max_island
     
     def bfs(self,i,j):
         Q = []
