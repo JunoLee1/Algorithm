@@ -5,21 +5,19 @@ class Solution:
         self.dx = [0, -1, 0, 1]
         self.dy = [-1, 0, 1, 0]
         self.visited = [[False for _ in range(self.n)] for _ in range(self.m)]
-        cnt1 = 0
-        max_island = 0
+        m_island = 0
         
         for i in range(self.m):
             for j in range(self.n):
                 if self.grid[i][j] == 1 and (not self.visited[i][j]):
-                    self.bfs(i,j)
-                    cnt1 += 1
-                    max_island = max(max_island, cnt1)
-        return max_island
+                    m_island = max(m_island, self.bfs(i,j))
+        return m_island
     
     def bfs(self,i,j):
         Q = []
         Q.append((i,j))
         self.visited[i][j] = True
+        area = 1 #너비는 1 
         while len(Q):
             curr = Q[0]
             Q.pop(0)
@@ -34,6 +32,7 @@ class Solution:
                     continue 
                 Q.append((nx, ny))
                 self.visited[nx][ny] = True
-        return None
+                area += 1 # 너비에 1씩 더해준다 
+        return area 
             
         
