@@ -53,10 +53,10 @@ class Solution:
         area = 1 #첫 땅
         
         if i < 0 or j < 0 or i >= self.m or j >= self.n:        
-            return None
+            return 0
         
         if self.grid[i][j] == 0 or self.visited[i][j]:
-            return None
+            return 0
         
         self.visited[i][j] = True
         
