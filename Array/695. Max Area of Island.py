@@ -64,8 +64,8 @@ class Solution:
             nx = i + self.dx[d]
             ny = j + self.dy[d]
       
-            area += 1
-            self.dfs(nx,ny)
+            
+            area += self.dfs(nx,ny)
         return area
        
         
