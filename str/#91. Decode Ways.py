@@ -18,28 +18,28 @@ class Solution:
 
 
 
-        class Solution:
+    class Solution:
     def numDecodings(self, s: str) -> int:
         #problem def:  return the number of ways to decode from "i - 1" th  to "n" th.
-        # i == 0: return 1
-        # if f(i) == 0: return 0
-        n = len(s)
-        dp = [0] *(n + 1)
-    def topdown(self, i, dp):
-        if i == 0:
-            return 1
-
-        if dp[i] != 0:
-            return dp[i]
-
-        if 1 <= self.topdown(i - 1, dp) <= 10 and s[i-1] != "0":
-            dp[i] += self.topdown(i - 1, dp)
-
-        if 10 <= self.topdown(i - 2, dp) <= 26:
-            dp[i] += self.topdown(i - 2, dp)
-                
-        return dp[n]
-    
+        n  = len(s)
+        dp = [-1 for _ in range(len(s))]
+        def topdown(self, i, dp):
+            if i == n: #남아 있는 숫자가 없다면 모든 수를 변환 
+                return 1
+            
+            if dp[i] != -1:
+                return dp[i]
+            
+            if s[i] == "0": #남아있는 숫자의 첫째 자리가 "0"이면, 0으로 저장
+                dp[i] = 0
+            
+            if i + 1 < len(s) and int(s[i : i + 2]) < 27: #만약 자리수가 두자리 이상이구 27보다 작다면 
+                dp[i] =  self.topdown(i + 1, dp) + self.topdown(i + 2, dp)
+                #첫번째자리 만 먼저 decoding 하거나 , 두번째자리도 decoding 해서 저장한다
+            else:
+                dp[i] =  self.topdown(i + 1, dp) #만약 남아있는 자리가 1자리 뿐이 거나 27보다 크다면  첫번째 자리면 저장한다
+            return dp[i] #저장된값을 리턴
+       
     
         
     
