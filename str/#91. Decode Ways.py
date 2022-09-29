@@ -23,7 +23,7 @@ class Solution:
         #problem def:  return the number of ways to decode from "i - 1" th  to "n" th.
         n  = len(s)
         dp = [-1 for _ in range(len(s))]
-        def topdown(self, i, dp):
+        def topdown (i, dp):
             if i == n: #남아 있는 숫자가 없다면 모든 수를 변환 
                 return 1
             
@@ -34,11 +34,12 @@ class Solution:
                 dp[i] = 0
             
             if i + 1 < len(s) and int(s[i : i + 2]) < 27: #만약 자리수가 두자리 이상이구 27보다 작다면 
-                dp[i] =  self.topdown(i + 1, dp) + self.topdown(i + 2, dp)
+                dp[i] =  topdown(i + 1, dp) + topdown(i + 2, dp)
                 #첫번째자리 만 먼저 decoding 하거나 , 두번째자리도 decoding 해서 저장한다
             else:
-                dp[i] =  self.topdown(i + 1, dp) #만약 남아있는 자리가 1자리 뿐이 거나 27보다 크다면  첫번째 자리면 저장한다
+                dp[i] =  topdown(i + 1, dp) #만약 남아있는 자리가 1자리 뿐이 거나 27보다 크다면  첫번째 자리면 저장한다
             return dp[i] #저장된값을 리턴
+        return topdown(0,dp) #인덱스 0부터 대입하여 구해준다.
        
     
         
