@@ -1,29 +1,21 @@
 class Solution:
-    def areOccurrencesEqual(self, s: str) -> bool:
-        #prob def:  Check if All Characters Have Equal Number of Occurrences
-        
-#         1. tmp 값에다 counter의 val을 다 구한다
-#         2. 만약에 tmp값 안에있는 val들이 각각 다른 경우와 같을 경우를 구한다.
-        freq = {}
-        self.n = len(s)
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        arr1 = sorted(arr)
+        seen = {}
+        self.n = len(arr1)
+        self.c = Counter(arr1)
         flow = True
-        for i in range(self.n):
-            if s[i] not in freq:
-                freq[s[i]] = 1
+        for key in self.c:
+            if self.c[key] in seen:
+                flow = False
+                break
             else:
-                freq[s[i]] += 1
-        l = list(freq.values())
-        for idx in range(len(l)):
-            for j in range(idx):
-                if l[idx] != l[j]:
-                    flow = False
-                    break
-                else:
-                    flow = True
+                seen[self.c[key]] = 1
         return flow
-                    
-
-
+        
+                
+    
+        
 
 
 
