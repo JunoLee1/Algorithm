@@ -20,9 +20,9 @@ class Solution:
         if not node2:
             return 
         while node1 is not None or node2 is not None:
-            if root1_level == root2_level:
+            if root1_level == root2_level: #만약에 root1와 root2 의 층이 같은 층이라면
                 tmp = node1.val + node2.val 
                 res.append(tmp)
-            self.dfs(node1.left, node2.left, root1_level + 1, root2_level, res)
+            self.dfs(node1.left, node2.left, root1_level + 1, root2_level, res) #각각 그다음 층으로 간다
             self.dfs(node1.right, node2.right, root1_level, root2_level + 1, res)
-        return TreeNode(res)
+        return TreeNode(res) 
