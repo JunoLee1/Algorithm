@@ -3,7 +3,7 @@ class Solution:
         d = defaultdict(int)
         res = ""
         for char in s:
-            d[char] += 1 #
+            d[char] += 1 # count each char
         
         while True: # True 일동안 
             Flag = True # Flag 함수에다가 boolean True
