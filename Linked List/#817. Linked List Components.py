@@ -8,8 +8,8 @@ class Solution:
         count = 0
         node = head #traverse 
         while node:
-            if node.val in nums:
-                count+=1
+            if node.val in nums: # if node.val is in nums
+                count+=1 # connect the node
                 while node and node.val in nums:
                     node = node.next
             else :node = node.next
