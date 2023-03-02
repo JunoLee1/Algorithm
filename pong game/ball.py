@@ -20,9 +20,10 @@ class Ball(Turtle):
 
     def reflect(self):
         self.dx *= -1
-        self.speed *= 0.5
+        self.speed *= 0.9
 
 
     def reset(self):
         self.goto(0, 0)
+        self.speed = 0.1
         self.reflect()

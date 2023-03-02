@@ -31,11 +31,15 @@ while the_game_on:
         scoreboard.increase()
 
     elif snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280: 
+        scoreboard.reset()
+        snake.reset()
         the_game_on = False
 # detect collison with tail.
 # we had colide any seg, trig game over sig
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
+            scoreboard.reset()
+            snake.reset()
             the_game_on = False
 
 

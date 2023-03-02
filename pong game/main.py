@@ -23,11 +23,10 @@ screen.onkey(l_paddle.down, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(ball.move_speed())
+    time.sleep(ball.speed)
     screen.update()
     ball.move()
-    #detect colision with wall
-    if ball.ycor() > 280 or ball.ycor() < -280: 
+    if ball.ycor() > 280 or ball.ycor() < -280:  #detect colision with wall
         ball.bounce()
     if ball.distance(r_paddle) < 50 and ball.xcor() > 330:
         ball.reflect()
@@ -36,12 +35,12 @@ while game_is_on:
     # detect right side bar miss the ball
     if ball.xcor() > 380:
         ball.reset()
-        scoreboard.l_score += 1
+        scoreboard.l_point()
 
 
     elif ball.xcor() < -380:
         ball.reset()
-        scoreboard.r_score += 1
+        scoreboard.r_point()
 
    
 
